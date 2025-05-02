@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expandable Menu Bar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .menu-bar {
+      background-color: #333;
+      color: white;
+      width: 60px;
+      transition: width 0.3s;
+      overflow: hidden;
+    }
+
+    .menu-bar.expanded {
+      width: 200px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    .menu-item i {
+      margin-right: 10px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .menu-item span {
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .menu-bar.expanded .menu-item span {
+      opacity: 1;
+    }
+
+    .toggle-button {
+      background-color: #444;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      cursor: pointer;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-bar" id="menuBar">
+  <button class="toggle-button" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+    <span>Menu</span>
+  </button>
+  <div class="menu-item">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </div>
+  <div class="menu-item">
+    <i class="fas fa-search"></i>
+    <span>Search</span>
+  </div>
+  <div class="menu-item">
+    <i class="fas fa-bell"></i>
+    <span>Notifications</span>
+  </div>
+  <div class="menu-item">
+    <i class="fas fa-cog"></i>
+    <span>Settings</span>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menuBar").classList.toggle("expanded");
+  }
+</script>
+
+</body>
+</html>
